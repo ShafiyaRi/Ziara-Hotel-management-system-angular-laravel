@@ -1,0 +1,81 @@
+<div class="row">
+  <div class="col-md-6 align-items-center">
+    <div
+      class="card align-items-centre justify-content-centre d-flex border m-4 " style="background-color: rgb(143, 177, 179);"
+    >
+      <form [formGroup]="roomForm" class="m-3" (ngSubmit)="save()">
+        <h4>Room details</h4>
+        <div>
+          <label for="roomType" class="form-label">Room type</label>
+          <input
+            type="string"
+            class="form-control"
+            formControlName="roomType"
+          />
+        </div>
+        <div>
+          <label for="facilities" class="form-label">Facilities</label>
+          <input
+            type="string"
+            class="form-control"
+            formControlName="facilities"
+          />
+        </div>
+        <div>
+          <label for="payment" class="form-label">Payment method</label>
+          <input type="string" class="form-control" formControlName="payment" />
+        </div>
+        <br />
+        <div class="col">
+       <button type="submit" class="btn btn-dark">Save</button>
+        </div>
+         <!-- <div class="col">
+       <button type="submit" class="btn btn-dark">Clear</button>
+        </div> -->
+
+      </form>
+    </div>
+  </div>
+  <div class="row m-4">
+    <div class="col">
+      <h4>Room details</h4>
+      <div *ngIf="room">
+        <table class="table custom-table bg-white">
+          <thead class="thead">
+            <tr>
+              <th scope="col">Room ID</th>
+              <th scope="col">Room type</th>
+              <th scope="col">Facilities</th>
+              <th scope="col">payment method</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let room of room; let i = index">
+              <td>{{ room.id }}</td>
+              <td>{{ room.roomType }}</td>
+              <td>{{ room.facilities }}</td>
+              <td>{{ room.payment }}</td>
+              <td>
+                <button
+                  type="button"
+                  class="btn btn-xsm"
+                  (click)="populateRoomForm(room)"
+                >
+                  <i class="fa-solid fa-edit"></i>
+                </button>
+                <button
+                (click)="deleteRooms(room)"
+                type="button"
+                class="btn btn-xsm me-2"
+              >
+                <i class="fa-solid fa-trash"></i>
+              </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

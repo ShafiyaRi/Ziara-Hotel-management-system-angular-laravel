@@ -1,0 +1,178 @@
+<app-header></app-header>
+<main>
+  <div class="row p-4">
+    <div class="col-md-4">
+      <div class="item">
+        <img src="assets/room1.webp" class="card-img-top" />
+        <div class="details">
+          <h3>Penthouse Suite</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec
+            odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.
+            Suspendisse urna...
+          </p>
+          <div class="price">$220 per night</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="item">
+        <img src="assets/hotel9.jpg" class="card-img-top" alt="..." />
+        <div class="details">
+          <h3>Penthouse Suite</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec
+            odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.
+            Suspendisse urna...
+          </p>
+          <div class="price">$220 per night</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="item">
+        <img src="assets/room3.webp" class="card-img-top" alt="..." />
+        <div class="details">
+          <h3>Penthouse Suite</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec
+            odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.
+            Suspendisse urna...
+          </p>
+          <div class="price">$220 per night</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row p-4">
+      <div class="col-md-4">
+        <div class="item">
+          <img src="assets/room2.webp" class="card-img-top" alt="..." />
+          <div class="details">
+            <h3>Penthouse Suite</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec
+              odio. Quisque volutpat mattis eros. Nullam malesuada erat ut
+              turpis. Suspendisse urna...
+            </p>
+            <div class="price">$220 per night</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="item">
+          <img src="assets/hotel11.jpg" class="card-img-top" alt="..." />
+          <div class="details">
+            <h3>Penthouse Suite</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec
+              odio. Quisque volutpat mattis eros. Nullam malesuada erat ut
+              turpis. Suspendisse urna...
+            </p>
+            <div class="price">$220 per night</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="item">
+          <img src="assets/hotel7.jpg" class="card-img-top" alt="..." />
+          <div class="details">
+            <h3>Penthouse Suite</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec
+              odio. Quisque volutpat mattis eros. Nullam malesuada erat ut
+              turpis. Suspendisse urna...
+            </p>
+            <div class="price">$220 per night</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<div class="position-relative">
+  <img
+    src="/assets/hotel12.jpg"
+    class="img-fluid w-100 position-relative"
+    alt="Background Image"
+  />
+  <div class="row">
+    <div
+      class="card align-items-center col-md-4 p-4 shadow-lg"
+      style="
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        font-family: 'Roboto', sans-serif;
+      "
+    >
+      <form [formGroup]="bookingForm" (ngSubmit)="onBooking()">
+      
+
+         <div class="row">
+          <!-- <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton1"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Dropdown button
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1"> -->
+              <!-- <li><a class="dropdown-item">{{RoomType}}</a></li> -->
+              
+            <!-- </ul>
+          </div> --> 
+          
+           <label for="room_id">Select Room Type:</label>
+        <select formControlName="room_id" id="room_id">
+    <option *ngFor="let room of roomOptions" [value]="room.id">{{ room.roomType }}</option>
+  </select>
+  <br>
+
+          <div class="col-md-4 mb-3">
+            <label for="number_of_rooms" class="form-label"
+              >Number of rooms</label
+            >
+            <input
+              type="number"
+              class="form-control"
+              formControlName="number_of_rooms"
+            />
+          </div>
+
+          <div class="col-md-4 mb-3">
+            <label for="number_of_guests" class="form-label"
+              >Number of guests</label
+            >
+            <input
+              type="number"
+              class="form-control"
+              formControlName="number_of_guests"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="date" class="form-label">Arrival date</label>
+            <input
+              type="date"
+              class="form-control"
+              formControlName="arrival_date"
+            />
+          </div>
+
+          <button type="submit" class="btn shadow-lg">Confirm booking</button>
+         </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
